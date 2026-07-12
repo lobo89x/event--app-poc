@@ -11,7 +11,7 @@ npm install
 npm run dev
 ```
 
-Open the URL shown in the terminal (typically `http://localhost:5173`).
+Open the URL shown in the terminal (typically `http://localhost:5173/event--app-poc/`).
 
 ## Production build
 
@@ -21,6 +21,33 @@ npm run preview
 ```
 
 The static output is written to `dist/` and is suitable for hosts such as Netlify, Vercel, GitHub Pages, or any static file server.
+
+Preview locally at `http://localhost:4173/event--app-poc/`.
+
+## Deploy to GitHub Pages
+
+This repository is configured for GitHub Pages as a **project site**:
+
+`https://lobo89x.github.io/event--app-poc/`
+
+### One-time GitHub setup
+
+1. Push these changes to `main`.
+2. In the GitHub repo, go to **Settings → Pages**.
+3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+
+### Automatic deployment
+
+The workflow in [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) runs on every push to `main`. It builds the Vite app and publishes `dist/` to GitHub Pages.
+
+### SPA routing on GitHub Pages
+
+Client-side routes such as `/vendors` and `/contact` are supported via:
+
+- `public/404.html` — redirects unknown paths back into the app
+- a small route-restore script in `index.html`
+
+If you rename the GitHub repository, update the `base` path in [`vite.config.ts`](vite.config.ts) to match the new repo name.
 
 ### SPA fallback
 
