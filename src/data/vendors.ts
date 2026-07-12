@@ -1,0 +1,86 @@
+import type { Vendor } from '../types/vendor';
+
+export const vendors: Vendor[] = [
+  {
+    id: 'vendor-01',
+    name: 'Greenwood Grill',
+    category: 'Food',
+    boothNumber: '3',
+    socialUrl: 'https://example.com/greenwood-grill',
+  },
+  {
+    id: 'vendor-02',
+    name: 'Sunrise Tacos',
+    category: 'Food',
+    boothNumber: '7',
+    socialUrl: 'https://example.com/sunrise-tacos',
+  },
+  {
+    id: 'vendor-03',
+    name: 'Sweet Maple Bites',
+    category: 'Desserts',
+    boothNumber: '12',
+    socialUrl: 'https://example.com/sweet-maple-bites',
+  },
+  {
+    id: 'vendor-04',
+    name: 'Parkside Lemonade',
+    category: 'Desserts',
+    boothNumber: '15',
+  },
+  {
+    id: 'vendor-05',
+    name: 'Heritage Threads',
+    category: 'Clothing',
+    boothNumber: '18',
+    socialUrl: 'https://example.com/heritage-threads',
+  },
+  {
+    id: 'vendor-06',
+    name: 'Canvas & Community',
+    category: 'Art',
+    boothNumber: '21',
+    socialUrl: 'https://example.com/canvas-community',
+  },
+  {
+    id: 'vendor-07',
+    name: 'Neighborhood Care Collective',
+    category: 'Community Organizations',
+    boothNumber: '24',
+    socialUrl: 'https://example.com/neighborhood-care',
+  },
+  {
+    id: 'vendor-08',
+    name: 'Little Explorers Play Zone',
+    category: "Children's Activities",
+    boothNumber: '28',
+    socialUrl: 'https://example.com/little-explorers',
+  },
+  {
+    id: 'vendor-09',
+    name: 'Rhythm Row Records',
+    category: 'Art',
+    boothNumber: '31',
+  },
+  {
+    id: 'vendor-10',
+    name: 'Fresh Field Salads',
+    category: 'Food',
+    boothNumber: '9',
+    socialUrl: 'https://example.com/fresh-field-salads',
+  },
+  {
+    id: 'vendor-11',
+    name: 'Unity Youth Mentors',
+    category: 'Community Organizations',
+    boothNumber: '26',
+    socialUrl: 'https://example.com/unity-youth',
+  },
+  {
+    id: 'vendor-12',
+    name: 'Joyful Bounce Inflatables',
+    category: "Children's Activities",
+    boothNumber: '30',
+    socialUrl: 'https://example.com/joyful-bounce',
+  },
+];
