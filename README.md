@@ -32,13 +32,31 @@ This repository is configured for GitHub Pages as a **project site**:
 
 ### One-time GitHub setup
 
-1. Push these changes to `main`.
-2. In the GitHub repo, go to **Settings → Pages**.
-3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+1. Push changes to `main`.
+2. Wait for the **Deploy to GitHub Pages** workflow to finish successfully.
+3. In the GitHub repo, go to **Settings → Pages**.
+4. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
+5. Set **Branch** to `gh-pages` and folder to `/ (root)`.
+6. Save.
+
+Important: do **not** publish from the `main` branch root. The `main` branch contains source files (`src/`, Vite dev `index.html`), not the production build. Publishing `main` causes a blank page because the browser tries to load `/src/main.tsx` instead of the built JavaScript bundle.
 
 ### Automatic deployment
 
-The workflow in [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) runs on every push to `main`. It builds the Vite app and publishes `dist/` to GitHub Pages.
+The workflow in [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) runs on every push to `main`. It:
+
+1. runs `npm ci` and `npm run build`
+2. verifies that `dist/` contains the built assets
+3. publishes `dist/` to the `gh-pages` branch
+
+### Troubleshooting a blank page
+
+If the site title appears but the app does not load:
+
+1. Open browser devtools → **Network**.
+2. Check whether requests for `/event--app-poc/assets/*.js` return **404**.
+3. View page source. If you see `<script type="module" src="/src/main.tsx">`, Pages is serving source from `main` instead of the built `gh-pages` output.
+4. Fix: set Pages source to the `gh-pages` branch as described above, then re-run the deploy workflow.
 
 ### SPA routing on GitHub Pages
 
